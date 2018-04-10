@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  status: MyString
+  category: MyString
+  days_to_go: 1
+  goal_amount: 1
+  description: MyText
+  markdown: MyText
+
+two:
+  title: MyString
+  status: MyString
+  category: MyString
+  days_to_go: 1
+  goal_amount: 1
+  description: MyText
+  markdown: MyText
