@@ -1,19 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  status: MyString
-  category: MyString
-  days_to_go: 1
+  image: MyString
+  video: MyString
+  main_picture: MyString
   goal_amount: 1
-  description: MyText
-  markdown: MyText
+  category: MyString
+  description: MyString
+  marckdown: MyString
+  days_to_go: 1
+  status: false
+  title: MyString
 
 two:
-  title: MyString
-  status: MyString
-  category: MyString
-  days_to_go: 1
+  image: MyString
+  video: MyString
+  main_picture: MyString
   goal_amount: 1
-  description: MyText
-  markdown: MyText
+  category: MyString
+  description: MyString
+  marckdown: MyString
+  days_to_go: 1
+  status: false
+  title: MyString
