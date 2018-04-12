@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :funds
+  resources :wishlists
+  resources :pay_methods
+  resources :contact_informations
   resources :users
   resources :promises
   resources :projects

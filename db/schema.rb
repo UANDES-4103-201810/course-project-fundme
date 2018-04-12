@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412013307) do
+ActiveRecord::Schema.define(version: 20180412205653) do
+
+  create_table "contact_informations", force: :cascade do |t|
+    t.string "address"
+    t.string "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "funds", force: :cascade do |t|
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pay_methods", force: :cascade do |t|
+    t.integer "card_number"
+    t.string "name_in_card"
+    t.date "expiration_date"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "image"
@@ -38,11 +60,16 @@ ActiveRecord::Schema.define(version: 20180412013307) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
-    t.string "image"
     t.string "password"
+    t.string "image"
     t.string "role"
     t.string "mail"
-    t.string "description"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "wishlists", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

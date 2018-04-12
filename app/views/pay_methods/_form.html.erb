@@ -1,0 +1,37 @@
+<%= form_with(model: pay_method, local: true) do |form| %>
+  <% if pay_method.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pay_method.errors.count, "error") %> prohibited this pay_method from being saved:</h2>
+
+      <ul>
+      <% pay_method.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :card_number %>
+    <%= form.number_field :card_number, id: :pay_method_card_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name_in_card %>
+    <%= form.text_field :name_in_card, id: :pay_method_name_in_card %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expiration_date %>
+    <%= form.date_select :expiration_date, id: :pay_method_expiration_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type, id: :pay_method_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
