@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CourseProjectFundme</title>
+    <title>Fundme</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,23 @@
   </head>
 
   <body>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-class">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h1 style="color: #CCCCCC">FundMe</h1>
+            </div>
+            <div class="col-md-6 ">
+              <header style="color: #CCCCCC">Francisco Moreira</header>
+              <header style="color: #CCCCCC">Alvaro Majluf</header>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
