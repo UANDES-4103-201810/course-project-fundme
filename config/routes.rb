@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  root 'home#index'
+
   resources :funds
   resources :wishlists
   resources :pay_methods
