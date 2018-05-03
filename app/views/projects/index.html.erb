@@ -2,7 +2,7 @@
 
 <h1>Projects</h1>
 
-<table>
+<!--<table>
   <thead>
     <tr>
       <th>Image</th>
@@ -20,27 +20,83 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <%# @projects.each do |project| %>
       <tr>
-        <td><%= project.image %></td>
-        <td><%= project.video %></td>
-        <td><%= project.main_picture %></td>
-        <td><%= project.goal_amount %></td>
-        <td><%= project.category %></td>
-        <td><%= project.description %></td>
-        <td><%= project.marckdown %></td>
-        <td><%= project.days_to_go %></td>
-        <td><%= project.status %></td>
-        <td><%= project.title %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= project.image %></td>
+        <td><%#= project.video %></td>
+        <td><%#= project.main_picture %></td>
+        <td><%#= project.goal_amount %></td>
+        <td><%#= project.category %></td>
+        <td><%#= project.description %></td>
+        <td><%#= project.marckdown %></td>
+        <td><%#= project.days_to_go %></td>
+        <td><%#= project.status %></td>
+        <td><%#= project.title %></td>
+        <td><%#= link_to 'Show', project %></td>
+        <td><%#= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%#= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
-</table>
+</table>-->
+
+<!--<br>
+
+<%#= link_to 'New Project', new_project_path %>
+<%#= link_to 'Back Home', home_index_path %>-->
+
+<p id="notice"><%= notice %></p>
+
+
+<div class="container-fluid" style="margin-left: 0.5%">
+  <div class="row">
+    <div class="col-lg-3">
+      <h3 style="color: black; margin-left: 0.5%">
+        <strong>Filter Results</strong>
+      </h3>
+      <h5 style="color: #999999; margin-left: 1%"><strong>Project Type</strong></h5>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">All project types</a></p>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Funding</a></p>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Market</a></p>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Investing</a></p>
+      <hr style="margin-left: 0.5%; max-width: 50%; background-color: black"/>
+      <h3 style="color: black; margin-left: 0.5%">
+        <strong>Categories</strong>
+      </h3>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Trending</a></p>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Technology</a></p>
+      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Wearable</a></p>
+
+    </div>
+
+    <% @projects.each do |project| %>
+      <div class="row">
+        <div class="thumbnail">
+          <img src="https://raw.githubusercontent.com/UANDES-4103-201810/course-project-youngbloodfunding/master/app/assets/images/logo.png" alt="...">
+          <div class="caption">
+            <h3><%= project.title %></h3>
+            <hr />
+            <h5 style="color: #999999">Project Goal: <%= project.goal_amount %> USD</h5>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+                70%
+                <span class="sr-only">60% Complete</span>
+              </div>
+            </div>
+            <p>
+            <div href="#" class="btn btn-primary" role="button" style="color: white">Fund</div>
+            <div class="btn btn-default"><td style="color: white"><%= link_to 'Show', project %></td></div>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 
 <br>
 
 <%= link_to 'New Project', new_project_path %>
 <%= link_to 'Back Home', home_index_path %>
+
