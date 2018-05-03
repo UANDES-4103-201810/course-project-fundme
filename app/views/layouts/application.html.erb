@@ -3,7 +3,6 @@
   <head>
     <title>Fundme</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,15 +13,14 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6" >
-              <h1 style="color: #CCCCCC">FundMe</h1>
-            </div>
-            <div class="col-md-6 ">
+              <h1 style="color: #CCCCCC" align="left">FundMe</h1>
               <header style="color: #CCCCCC">Francisco Moreira</header>
               <header style="color: #CCCCCC">Alvaro Majluf</header>
             </div>
+            <div class="col-md-6 ">
 
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -51,6 +49,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
+
             <li><a href="#">Start your campaign</a></li>
 
             <% if user_signed_in? %>
@@ -61,7 +60,6 @@
               <li><%= link_to "Login", new_user_session_path %></li>
             <% end %>
 
-            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
