@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :projects,through: :wishlists
   has_many :projects,through: :funds
   has_many :funds
+  has_many :projects
 
   validates :name, presence: true
   validates :last_name, presence: true

@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+
 =begin
   has_many :wishlists
   has_many :users,through: :wishlists
@@ -6,6 +7,7 @@ class Project < ApplicationRecord
   has_many :funds
   belongs_to :user
 =end
+
 
   has_attached_file :image, styles: { small: "30x30>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
