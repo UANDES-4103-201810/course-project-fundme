@@ -50,7 +50,7 @@
 
 <div class="container-fluid" style="margin-left: 0.5%">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-md-3">
       <h3 style="color: black; margin-left: 0.5%">
         <strong>Filter Results</strong>
       </h3>
@@ -70,24 +70,32 @@
     </div>
 
     <% @projects.each do |project| %>
-      <div class="row">
-        <div class="thumbnail">
-          <img src="https://github.com/UANDES-4103-201810/course-project-fundme/blob/arreglos/app/assets/images/homeless.png" alt="...">
-          <div class="caption">
-            <h3><%= project.title %></h3>
-            <hr />
-            <h5 style="color: #999999">Project Goal: <%= project.goal_amount %> USD</h5>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-                70%
-                <span class="sr-only">60% Complete</span>
-              </div>
+      <div class="col-md-9">
+        <div class="jumbotron" >
+            <div class="caption" >
+              <h3><%= project.title %></h3>
+
+                <div class="col-md-3">
+                  <image href="https://www.google.cl/search?q=axe+capital&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjBn-6SxujaAhXxYN8KHXS8A20Q_AUICigB&biw=1311&bih=604#imgrc=s0QI3CjtWwTJcM:" alt=""></image>
+                </div>
+                <div class="col-md-3">
+                  <h5 style="color: #2E2F30">Fund Goal : <%= project.goal_amount %> USD</h5>
+                  Total Fund Collected
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                      50%
+                      <span class="sr-only">60% Complete</span>
+                    </div>
+                  </div>
+                </div>
+              
+
+              <p>
+              <div href="#" class="btn btn-primary" role="button" style="color: white">Fund</div>
+              <div class="btn btn-default"><td style="color: white"><%= link_to 'Show', project %></td></div>
+              </p>
             </div>
-            <p>
-            <div href="#" class="btn btn-primary" role="button" style="color: white">Fund</div>
-            <div class="btn btn-default"><td style="color: white"><%= link_to 'Show', project %></td></div>
-            </p>
-          </div>
+
         </div>
       </div>
     <% end %>
