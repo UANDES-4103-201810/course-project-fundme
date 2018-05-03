@@ -1,7 +1,6 @@
 class CreateProjects < ActiveRecord::Migration[5.1]
   def change
     create_table :projects do |t|
-      t.string :image
       t.string :video
       t.string :main_picture
       t.integer :goal_amount

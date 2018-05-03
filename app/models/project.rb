@@ -7,6 +7,9 @@ class Project < ApplicationRecord
   belongs_to :user
 =end
 
+  has_attached_file :image, styles: { small: "50x50>", thumb: "100x100>" }
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   validates :title, presence: true
   validates :status, presence: true
   validates :days_to_go, presence: true
