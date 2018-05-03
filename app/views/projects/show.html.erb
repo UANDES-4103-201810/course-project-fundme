@@ -1,54 +1,62 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @project.image.url %>
-</p>
 
-<p>
-  <strong>Video:</strong>
-  <%= @project.video %>
-</p>
 
-<p>
-  <strong>Main picture:</strong>
-  <%= @project.main_picture %>
-</p>
+<style type="text/css">
+  .jumbotron{
+    margin-top: 20px;
+    background-color: cadetblue ;
+    background-size: auto;
+  }
+</style>
+<div class="jumbotron">
+  <h1 style="color: white; margin-left: 3%">
+    <%= @project.title %>
+  </h1>
+</div>
+<div class="container-fluid" style="margin-left: 0.5%">
+  <div class="row">
+    <div class="col-lg-4">
+      <h2 style="color: black; margin-left: 0.5%">
+        Collected Fund  / <%= 45 %>
+      </h2>
+      <div class="progress" style="max-width: 50%">
+        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+          <span class="sr-only">60% Complete</span>
+        </div>
+      </div>
+      <h4>Goal Amount: <%= @project.goal_amount %> USD.</h4> <!--Insert ruby to check number of backers-->
 
-<p>
-  <strong>Goal amount:</strong>
-  <%= @project.goal_amount %>
-</p>
+    </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @project.category %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    <div class="col-lg-4">
+      <video width="64%" height="36%" controls>
+        <source src="#" type="video/mp4">
+        <source src="#" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="col-lg-4">
+      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white">Fund project</a></p>
+      <p><a class="btn btn-success btn-lg" href="#" role="button" style="color: white">Get a Promise</a></p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Marckdown:</strong>
-  <%= @project.marckdown %>
-</p>
+<div class="container" style="margin-left: 0.5%; margin-top: 15px; box-shadow: 5px 5px 2.5px grey">
+  <p>
+    <strong style="font-size: large">Description:</strong>
+  </p>
+  <p style="font-size: medium">
+    <%= @project.description %>
+  </p>
+</div>
 
-<p>
-  <strong>Days to go:</strong>
-  <%= @project.days_to_go %>
-</p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @project.status %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
