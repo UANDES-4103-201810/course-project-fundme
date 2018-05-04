@@ -10,6 +10,19 @@
     <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .footerr {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: grey;
+        color: white;
+        text-align: center;
+        height:27px;
+      }
+    </style>
   </head>
 
   <body>
@@ -95,6 +108,22 @@
           <% end %>
           </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="footerr" >
+      <div class="row">
+        <div class="col-md-2">
+          <a>Trust and Security</a>
+        </div>
+        <div class="col-md-2">
+          <a>Terms of use</a>
+        </div>
+        <div class="col-md-2">
+          <a>Privacy Policy</a>
+        </div>
+        <div class="col-md-2">
+          <a>Cookies Policy</a>
         </div>
       </div>
     </div>
