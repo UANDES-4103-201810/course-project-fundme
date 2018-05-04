@@ -16,16 +16,22 @@
 </div>
 <div class="container-fluid" style="margin-left: 0.5%">
   <div class="row">
-    <div class="col-lg-3">
-      <img ><%= image_tag @project.image.url(:thumb) %>
-      <video width="64%" height="36%" controls>
-        <source src="#" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <div class="col-lg-4">
+      <h5>Image</h5>
+      <div class="row">
+        <img ><%= image_tag @project.image.url(:thumb) %>
+      </div>
+      <h5>Video</h5>
+      <div class="row">
+        <video width="64%" height="36%" controls>
+          <source src="#" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </div>
     <div class="col-lg-4">
       <h5 style="color: black; margin-left: 0.5%">
-        Total Fund Collected <%= 45 %>
+        Total Fund Collected <%= 45 %> USD
       </h5>
       <div class="progress" style="max-width: 50%">
         <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
@@ -34,16 +40,28 @@
       </div>
       <h5>Total Fund Need: <%= @project.goal_amount %> USD.</h5>
       <h5>Days To Go: <%= @project.days_to_go %> Days</h5>
-      <form class="form">
-        <label for="usr">Amount to fund:</label>
-        <input type="number" class="form-control" id="usr">
+      <form class="form-inline" action="/action_page.php">
+        <div class="form-group">
+          <label for="usr">Amount to fund:</label>
+          <input type="number" class="form-control" id="usr">
+        </div>
       </form>
+      <br>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Promises
+          <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a href="#">Promise 1</a></li>
+          <li><a href="#">Promise 2</a></li>
+          <li><a href="#">Promise 3</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="col-lg-5">
-      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white">Fund project</a></p>
+    <div class="col-lg-4">
+      <p><a class="btn btn-success btn-lg" href="#" role="button" style="color: white">Fund project</a></p>
       <p><a class="btn btn-success btn-lg" href="#" role="button" style="color: white">Get a Promise</a></p>
       <div class="btn btn-success btn-lg">Add to wishlist</div>
-      <div class="btn btn-danger btn-lg"><%= link_to 'Back', projects_path %></div>
+      <div class="btn btn-danger btn-lg" style="color: white;"><%= link_to 'Back', projects_path %></div>
     </div>
   </div>
 </div>
