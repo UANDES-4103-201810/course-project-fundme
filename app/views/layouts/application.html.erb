@@ -2,9 +2,27 @@
 <html>
   <head>
     <title>Fundme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
+    <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .footerr {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: grey;
+        color: white;
+        text-align: center;
+        height:27px;
+      }
+    </style>
   </head>
 
   <body>
@@ -49,9 +67,10 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
 
-            <li><a href="#">Start your campaign</a></li>
+
 
             <% if user_signed_in? %>
+              <li><%= link_to 'Create your own project', new_project_path %></a></li>
               <li><%= link_to current_user.email, edit_user_registration_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,10 +86,48 @@
             <% end %>
 
           </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        </div>
+      </div>
     </nav>
-    <p id="notice"><%= notice %></p>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+          <% flash.each do |type, msg| %>
+          <% if type == "notice" %>
+          <div class="alert alert-success">
+            <% elsif type == "alert" %>
+          <div class="alert alert-danger">
+          <% else %>
+          <div class='alert alert-<%= "#{type}" %>'>
+          <% end %>
+          <a href="#" class="close" data-dismiss="alert">&#215;</a>
+            <ul>
+              <li>
+                <%= msg %>
+              </li>
+            </ul>
+          <% end %>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <%= yield %>
+    <div class="footerr" >
+      <div class="row">
+        <div class="col-md-2">
+          <a>Trust and Security</a>
+        </div>
+        <div class="col-md-2">
+          <a>Terms of use</a>
+        </div>
+        <div class="col-md-2">
+          <a>Privacy Policy</a>
+        </div>
+        <div class="col-md-2">
+          <a>Cookies Policy</a>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
