@@ -8,17 +8,18 @@
 
 <div class="container-fluid" style="margin-left: 0.5%">
   <div class="row">
-
+    <h1>Projects</h1>
 
     <% @projects.each do |project| %>
       <div class="col-md-12">
-        <h1>Projects</h1>
+
         <div class="jumbotron" style="background: lightgray">
           <div class="caption">
             <h2><%= project.title %></h2>
             <div class="row">
               <div class="col-md-3 " >
-                <img  ><%= image_tag project.image.url(:thumb) %>
+
+                <%= image_tag project.image.url(:thumb) %>
               </div>
               <div class="col-md-4">
                 <div>Fund Goal : <%= project.goal_amount %> USD</div>
@@ -36,6 +37,7 @@
                 </div>
               </div>
               <div class="col-md-3">
+                <h5>Markdown</h5>
                 <blockquote><%= project.marckdown %></blockquote>
               </div>
               </p>
