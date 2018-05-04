@@ -34,18 +34,22 @@
       </div>
       <h5>Total Fund Need: <%= @project.goal_amount %> USD.</h5>
       <h5>Days To Go: <%= @project.days_to_go %> Days</h5>
+      <form class="form">
+        <label for="usr">Amount to fund:</label>
+        <input type="number" class="form-control" id="usr">
+      </form>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-5">
       <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white">Fund project</a></p>
       <p><a class="btn btn-success btn-lg" href="#" role="button" style="color: white">Get a Promise</a></p>
+      <div class="btn btn-success btn-lg">Add to wishlist</div>
+      <div class="btn btn-danger btn-lg"><%= link_to 'Back', projects_path %></div>
     </div>
   </div>
 </div>
 
 <div class="container" style="margin-left: 0.5%; margin-top: 15px; box-shadow: 5px 5px 2.5px grey">
-  <p>
     <strong style="font-size: large">Description:</strong>
-  </p>
   <p style="font-size: medium">
     <%= @project.description %>
   </p>
@@ -57,5 +61,4 @@
 
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
-<%= link_to 'Back Home', home_index_path %>
+
