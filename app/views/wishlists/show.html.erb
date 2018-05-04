@@ -1,4 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div id="toolbarbottom" class="toolbar">
 
-<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
-<%= link_to 'Back', wishlists_path %>
+  <ul>
+    <li><a href="/projects/1"> EtherDog</a></li>
+  </ul>
+</div>
+<h2>Wishlist</h2>
+<div class="btn-group-vertical">
+  <button href="/projects/1" type="button" class="btn btn-primary">EtherDog</button>
+  <button href="/projects/2" type="button" class="btn btn-primary">CleanMax</button>
+</div>
+
+<%# @wishlists.each do |wishlist| %>
+<!--  <div class="col-md-6 column_container">-->
+<!--    <div class="list-group">-->
+<!--      <a class="list-group-item list-group-item-success active">-->
+<%#= wishlist.category %>
+<!--      </a>-->
+<!--      <a href="#" class="list-group-item">-->
+<%#= wishlist.name %>
+<!--      </a>-->
+<!--    </div>-->
+<!--  </div>-->
+<%# end %>
