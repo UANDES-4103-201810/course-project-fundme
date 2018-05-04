@@ -1,1 +1,48 @@
-<p>h</p>
+
+
+
+<div class="container">
+  <h2>Account Information</h2>
+  <form action="/action_page.php">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <label for="Name">Name:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @user.name %> </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Last Name">Last Name:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @user.last_name %> </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Email">Email:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @user.email %> </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Contact Information">Contact Information:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Description">Description:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @user.description %></div>
+        </div>
+      </div></div>
+    <div class="col-sm-4">
+      <div class="Image profile">
+        <h2>Image Profile</h2>
+        <img src= <%= @user.image %> class="img-rounded" width="304" height="236">
+      </div></div>
+
+  </div>
+
+  </form>
+</div>
