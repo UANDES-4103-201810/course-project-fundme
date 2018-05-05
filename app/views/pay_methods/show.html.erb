@@ -1,24 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Card number:</strong>
-  <%= @pay_method.card_number %>
-</p>
 
-<p>
-  <strong>Name in card:</strong>
-  <%= @pay_method.name_in_card %>
-</p>
+<h2>Pay Method</h2>
+<form action="/action_page.php">
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <label for="Name">Card Number:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"> <%= @pay_method.card_number %></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Last Name">Name in Card:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @pay_method.name_in_card %> </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Email">Expiration Date:</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @pay_method.expiration_date %> </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Contact Information">Company</label>
+        <div class="panel panel-default">
+          <div class="panel-body"><%= @pay_method.company %></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Expiration date:</strong>
-  <%= @pay_method.expiration_date %>
-</p>
+</form>
 
-<p>
-  <strong>Type:</strong>
-  <%= @pay_method.type %>
-</p>
-
-<%= link_to 'Edit', edit_pay_method_path(@pay_method) %> |
-<%= link_to 'Back', pay_methods_path %>
+<a type="button"  class="btn btn-primary" style="color: white" <%= link_to 'Edit', edit_pay_method_path(@pay_method) %> </a>
+<a type="button"  class="btn btn-primary" style="color: white" <%= link_to 'Back', pay_methods_path %> </a>
