@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20180503141710) do
   end
 
   create_table "pay_methods", force: :cascade do |t|
-    t.integer "card_number"
+    t.string "card_number"
     t.string "name_in_card"
     t.date "expiration_date"
-    t.string "type"
+    t.string "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

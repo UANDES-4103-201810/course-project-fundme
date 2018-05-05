@@ -69,6 +69,6 @@ class PayMethodsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pay_method_params
-      params.require(:pay_method).permit(:card_number, :name_in_card, :expiration_date, :type)
+      params.require(:pay_method).permit(:card_number, :name_in_card, :expiration_date, :company)
     end
 end
