@@ -74,13 +74,14 @@
                   <li ><%= link_to "Edit Profile", edit_user_registration_path %></li>
                   <li><a href="/wishlists">Wishlist</a></li>
                   <li><a href="/pay_methods">Pay Methods</a></li>
+                  <% if current_user.role != "admin" %>
+                  <% else %>
+                    <li><%= link_to "Users", users_index_path %></li>
+                    <li><%= link_to "Projects", projects_path %></li>
+                  <% end %>
                 </ul>
               </div>
-              <% if current_user.role != "admin" %>
-              <% else %>
-                <li><a href="users/index">Users</a></li>
-                <li><a href="projects">Projects</a></li>
-              <% end %>
+
             <% else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
               <li><%= link_to "Login", new_user_session_path %></li>
@@ -112,7 +113,7 @@
       </div>
     </div>
     <%= yield %>
-    <div class="footerr" >
+    <div class="footerr" style="font-style: italic">
       <div class="row">
         <div class="col-md-2">
           <a>Trust and Security</a>

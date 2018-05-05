@@ -71,8 +71,8 @@
         <tr>
           <td><%= project.title %></td>
           <td class="btn btn-success"><%= link_to 'Show', project %></td>
-          <td><a class="btn btn-info">Edit</a></td>
-          <td><a class="btn btn-danger">Delete</a></td>
+          <td class="btn btn-info"<%= link_to 'Edit', edit_project_path(project) %></td>
+          <td class="btn btn-danger">Delete</td>
         </tr>
       <% end %>
       </tbody>
