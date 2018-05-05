@@ -5,7 +5,7 @@
 <h2>Pay Method</h2>
 <form action="/action_page.php">
   <div class="row">
-    <div class="col-sm-2">
+    <div class="col-md-4">
       <div class="form-group">
         <label for="Name">Card Number:</label>
         <div class="panel panel-default">
@@ -32,9 +32,8 @@
       </div>
     </div>
   </div>
-
+  <a type="button" class="btn btn-primary" style="color: white" <%= link_to 'Edit', edit_pay_method_path(@pay_method) %> </a>
+  <a type="button" class="btn btn-primary" style="color: white" <%= link_to 'Back', pay_methods_path %> </a>
 </form>
 
-<a type="button"  class="btn btn-primary" style="color: white" <%= link_to 'Edit', edit_pay_method_path(@pay_method) %> </a>
-<a type="button"  class="btn btn-primary" style="color: white" <%= link_to 'Back', pay_methods_path %> </a>
 </div>
