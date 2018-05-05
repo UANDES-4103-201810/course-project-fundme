@@ -3,14 +3,12 @@
   <head>
     <title>Fundme</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <%= csrf_meta_tags %>
-    <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       .footerr {
         position: fixed;
@@ -66,9 +64,6 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-
-
-
             <% if user_signed_in? %>
               <li><%= link_to 'Create your own project', new_project_path %></a></li>
               <li><%= link_to current_user.email, edit_user_registration_path %></li>
@@ -81,11 +76,15 @@
                   <li><a href="/pay_methods">Pay Methods</a></li>
                 </ul>
               </div>
+              <% if current_user.role != "admin" %>
+              <% else %>
+                <li><a>Users</a></li>
+                <li><a>Projects</a></li>
+              <% end %>
             <% else %>
               <li><%= link_to "Sign Up", new_user_registration_path %></li>
               <li><%= link_to "Login", new_user_session_path %></li>
             <% end %>
-
           </ul>
         </div>
       </div>
