@@ -40,7 +40,9 @@
     <div class="col-sm-4">
       <div class="Image profile">
         <h2>Image Profile</h2>
+        <% if @user.image != nil %>
         <%= image_tag @user.image, :size => "250x180" %>
+          <% end %>
       </div>
   </div>
 
