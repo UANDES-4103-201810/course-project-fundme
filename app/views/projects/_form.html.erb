@@ -11,62 +11,53 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.hidden_field :user_id, :value => current_user.id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image%>
-    <%= form.file_field :image, id: :project_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :video %>
-    <%= form.text_field :video, id: :project_video %>
-  </div>
-
-  <div class="field">
-    <%= form.label :main_picture %>
-    <%= form.text_field :main_picture, id: :project_main_picture %>
-  </div>
-
-  <div class="field">
-    <%= form.label :goal_amount %>
-    <%= form.number_field :goal_amount, id: :project_goal_amount %>
-  </div>
-
-<!--  <div class="field">
+<div class="col-md-8">
+    <div class="form-group">
+      <%= form.hidden_field :user_id, :value => current_user.id, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :image%>
+      <%= form.file_field :image, id: :project_image, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :video %>
+      <%= form.text_field :video, id: :project_video, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :main_picture %>
+      <%= form.text_field :main_picture, id: :project_main_picture, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :goal_amount %>
+      <%= form.number_field :goal_amount, id: :project_goal_amount, class: "form-control" %>
+    </div>
+    <!--  <div class="field">
     <%#= form.label :category %>
     <%#= form.text_field :category, id: :project_category %>
   </div>-->
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :project_description, class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <%= form.label :marckdown %>
+      <%= form.text_field :marckdown, id: :project_marckdown, class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <%= form.label :days_to_go %>
+      <%= form.number_field :days_to_go, id: :project_days_to_go, class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <%= form.label :status %>
+      <%= form.check_box :status, id: :project_status, class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :project_title, class: "form-control"  %>
+    </div>
+    <div class="form-group">
+      <%= form.submit "create", class: "btn btn-success" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :project_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :marckdown %>
-    <%= form.text_field :marckdown, id: :project_marckdown %>
-  </div>
-
-  <div class="field">
-    <%= form.label :days_to_go %>
-    <%= form.number_field :days_to_go, id: :project_days_to_go %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.check_box :status, id: :project_status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :project_title %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>

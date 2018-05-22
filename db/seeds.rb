@@ -14,8 +14,7 @@ User.create(name:"User",last_name:"Commonuser",image:"user.png",role:"user",desc
 PayMethod.create(card_number:"1234123412341234",name_in_card:"admin user",expiration_date:"2018-10-10" ,company:"Visa")
 PayMethod.create(card_number:"5465454684846848",name_in_card:"User ssssss",expiration_date:"2018-10-12" ,company:"MasterCard")
 
-Wishlist.create()
-Wishlist.create()
+
 
 
 
