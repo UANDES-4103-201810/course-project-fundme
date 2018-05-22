@@ -10,19 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503141710) do
+ActiveRecord::Schema.define(version: 20180522183648) do
 
-  create_table "contact_informations", force: :cascade do |t|
-    t.string "address"
-    t.string "phone_number"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "funds", force: :cascade do |t|
-    t.integer "amount"
+  create_table "contact_informations", force: :cascade do |t|
+    t.string "address"
+    t.string "phone_number"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contact_informations_on_user_id"
+  end
+
+  create_table "funds", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "pay_method_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pay_method_id"], name: "index_funds_on_pay_method_id"
+    t.index ["project_id"], name: "index_funds_on_project_id"
+    t.index ["user_id"], name: "index_funds_on_user_id"
   end
 
   create_table "pay_methods", force: :cascade do |t|
@@ -30,34 +44,41 @@ ActiveRecord::Schema.define(version: 20180503141710) do
     t.string "name_in_card"
     t.date "expiration_date"
     t.string "company"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pay_methods_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "video"
     t.string "main_picture"
     t.integer "goal_amount"
-    t.string "category"
     t.string "description"
     t.string "marckdown"
     t.integer "days_to_go"
     t.boolean "status"
     t.string "title"
+    t.integer "user_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.index ["category_id"], name: "index_projects_on_category_id"
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "promises", force: :cascade do |t|
     t.integer "amount"
     t.date "estimated_delivery_date"
     t.string "description"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_promises_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -82,9 +103,20 @@ ActiveRecord::Schema.define(version: 20180503141710) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "wishlists", force: :cascade do |t|
+  create_table "wishlist_projects", force: :cascade do |t|
+    t.integer "wishlist_id"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_wishlist_projects_on_project_id"
+    t.index ["wishlist_id"], name: "index_wishlist_projects_on_wishlist_id"
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
 end

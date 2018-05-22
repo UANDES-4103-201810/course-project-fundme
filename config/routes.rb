@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :wishlist_projects
   get 'users/index'
 
   devise_for :users, :path_prefix => 'd'

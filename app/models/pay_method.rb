@@ -1,6 +1,6 @@
 class PayMethod < ApplicationRecord
-  # belongs_to :user
-  # belongs_to :fund
+   belongs_to :user
+
 
   validates :card_number, length: {is: 16}
   validates :name_in_card, presence: true
