@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/index'
 
+  get 'addproject' , to: 'wishlists#addproject'
+
   resources :funds
   resources :wishlists
   resources :pay_methods

@@ -12,10 +12,11 @@
   </thead>
 
   <tbody>
-    <% @wishlists.each do |wishlist| %>
+  <%= @wishlistsprojects.count %>
+    <% @wishlistsprojects.each do |wishlist| %>
       <tr>
         <td><br></td>
-        <td> <%=wishlist.id %>.-</td>
+        <td> <%=wishlist.projects %>.-</td>
         <td  type="button" class="btn btn-success" style="color: white">  <%= link_to 'Show', wishlist %></td>
         <td  type="button" class="btn btn-success" style="color: white"><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td  type="button" class="btn btn-success" style="color: white" ><%= link_to 'Eliminate', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>

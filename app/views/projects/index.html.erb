@@ -37,6 +37,19 @@
                     <div class="btn btn-success">
                       <td style="color: white"><%= link_to 'Show', project %></td>
                     </div>
+                    <div class="btn btn-success">
+                      <td style="color: white">
+                        <%= link_to "Add to wishlist", addproject_path(:project_id => project.id) %></td>
+
+
+                      <%#= wishlist = Wishlist.find(current_user.id)%>
+
+                      <%#=if wishlist.id == "1" %>
+                        <%# link_to "Add to wishlist", new_wishlist_path %>
+                      <%#= end  %>
+                      <%#= wishlist = Wishlist.find(current_user.id)%>
+                      <%# link_to "Add to wishlist", new_wishlist_project_path(:project_id => project.id, :wishlist_id => wishlist.id) %>
+                    </div>
                   </div>
                   <div class="col-md-3">
                     <h5>Markdown</h5>

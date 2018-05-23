@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :wishlist_id %>
-    <%= form.text_field :wishlist_id, id: :wishlist_project_wishlist_id %>
+
+    <%= form.text_field :wishlist_id, :value => params[:wishlist_id] %>
   </div>
 
   <div class="field">
-    <%= form.label :project_id %>
-    <%= form.text_field :project_id, id: :wishlist_project_project_id %>
+
+    <%= form.text_field :project_id, :value => params[:project_id]%>
   </div>
 
   <div class="actions">

@@ -4,7 +4,15 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @wishlists = Wishlist.all
+    @wishlists = Wishlist.where(user_id: current_user.id)
+
+    if @wishlist.nil?
+      puts "VACIO"
+    else
+      puts "LISTO"
+    end
+
+    @wishlistsprojects = WishlistProject.where(wishlist_id: @wishlist.id)
   end
 
   # GET /wishlists/1
@@ -49,6 +57,21 @@ class WishlistsController < ApplicationController
         format.json { render json: @wishlist.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def addproject
+
+    if current_user.wishlist.nil?
+      current_user.wishlist = Wishlist.new(user_id: current_user.id)
+    end
+
+    @project = params[:project_id]
+    @wishlistproject = WishlistProject.new(wishlist_id: current_user.wishlist.id, project_id: @project)
+    @wishlistproject.save
+
+    redirect_to Rails.application.routes.recognize_path(request.referer)#[:action]
+    # render(:action => 'index')
+
   end
 
   # DELETE /wishlists/1
