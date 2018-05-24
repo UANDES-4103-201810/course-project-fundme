@@ -17,4 +17,5 @@ class Project < ApplicationRecord
   validates :marckdown, presence: true
   validates :description, presence: true
   validates :goal_amount, presence: true
+  validates :category_id, presence: true
 end
