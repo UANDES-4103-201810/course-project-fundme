@@ -1,28 +1,18 @@
 
-<p id="notice"><%= notice %></p>
 
-
-
-<p id="notice"><%= notice %></p>
 <% if current_user %>
   <h1>Projects</h1>
   <% if current_user.role != "admin" %>
     <% @projects.each do |project| %>
     <div class="container-fluid" style="margin-left: 0.5%">
       <div class="row">
-
-
-
           <div class="col-md-12">
-
             <div class="jumbotron" style="background: lightgray">
               <div class="caption">
                 <h2><%= project.title %></h2>
                 <div class="row">
                   <div class="col-md-3 ">
-
                     <%= image_tag project.image.url(:thumb) %>
-
                   </div>
                   <div class="col-md-4">
                     <div>Fund Goal : <%= project.goal_amount %> USD</div>
@@ -74,7 +64,6 @@
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <h1>All Projects</h1>
-
       <table class="table">
         <thead>
         <tr>
@@ -86,8 +75,8 @@
           <tr>
             <td><%= project.title %></td>
             <td class="btn btn-success"><%= link_to 'Show', project %></td>
-            <td class="btn btn-info"<%= link_to 'Edit', edit_project_path(project) %></td>
-            <td class="btn btn-danger">Delete</td>
+            <td ><%= link_to 'Edit', edit_project_path(project) %></td>
+            <td ><%= link_to 'Delete',project,method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
         </tbody>

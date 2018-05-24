@@ -16,9 +16,9 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><a class="btn btn-info">Show</a></td>
-        <td><a class="btn btn-info">Edit</a></td>
-        <td><a class="btn btn-danger">Delete</a></td>
+        <td class="btn btn-success"><%= link_to 'Show', user %></td>
+        <td class="btn btn-info"<%= link_to 'Edit', user %></td>
+        <td class="btn btn-danger" <%= link_to 'Delete', user %></td>
       </tr>
     <% end %>
     </tbody>
