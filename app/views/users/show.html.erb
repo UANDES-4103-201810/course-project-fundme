@@ -37,12 +37,10 @@
           <div class="panel-body"><%= @user.description %></div>
         </div>
       </div></div>
-    <div class="col-sm-4">
+    <div class="col-sm-2">
       <div class="Image profile">
         <h2>Image Profile</h2>
-        <% if @user.image != nil %>
-        <%= image_tag @user.image, :size => "250x180" %>
-          <% end %>
+          <%= image_tag(@user.image.url(:thumb),size: "100x100>") %>
       </div>
   </div>
 
