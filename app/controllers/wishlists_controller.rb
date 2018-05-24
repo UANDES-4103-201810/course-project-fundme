@@ -4,15 +4,15 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @wishlists = Wishlist.where(user_id: current_user.id)
+    @wishlists = Wishlist.where(:user_id => current_user.id)
 
-    if @wishlist.nil?
+    if @wishlists.count == 0
       puts "VACIO"
     else
       puts "LISTO"
     end
 
-    @wishlistsprojects = WishlistProject.where(wishlist_id: @wishlist.id)
+    @wishlistsprojects = WishlistProject.where(:wishlist_id => @wishlists)
   end
 
   # GET /wishlists/1
@@ -66,8 +66,13 @@ class WishlistsController < ApplicationController
     end
 
     @project = params[:project_id]
-    @wishlistproject = WishlistProject.new(wishlist_id: current_user.wishlist.id, project_id: @project)
-    @wishlistproject.save
+    if WishlistProject.where(:project_id => @project).nil?
+      
+    else
+      @wishlistproject = WishlistProject.new(wishlist_id: current_user.wishlist.id, project_id: @project)
+      @wishlistproject.save
+    end
+
 
     redirect_to Rails.application.routes.recognize_path(request.referer)#[:action]
     # render(:action => 'index')
