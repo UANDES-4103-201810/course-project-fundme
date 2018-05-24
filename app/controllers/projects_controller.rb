@@ -6,7 +6,9 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
   end
-
+  def myprojects
+    @mprojects = Project.where(:user_id => current_user.id)
+  end
   # GET /projects/1
   # GET /projects/1.json
   def show

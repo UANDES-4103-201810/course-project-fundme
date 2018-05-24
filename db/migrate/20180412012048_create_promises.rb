@@ -5,7 +5,7 @@ class CreatePromises < ActiveRecord::Migration[5.1]
       t.date :estimated_delivery_date
       t.string :description
       t.references :project
-
+      t.references :user
       t.timestamps
     end
   end

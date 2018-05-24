@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'addproject' , to: 'wishlists#addproject'
-
+  get 'myprojects' , to: 'projects#myprojects'
   resources :funds
   resources :wishlists
   resources :pay_methods

@@ -1,6 +1,6 @@
 class Promise < ApplicationRecord
   belongs_to :project
-
+  belongs_to :user
 
   validates :description, presence: true
   validates :estimated_delivery_date, presence: true

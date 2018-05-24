@@ -7,6 +7,10 @@ class PromisesController < ApplicationController
     @promises = Promise.all
   end
 
+  def mypromises
+    @mpromises = Promise.where(:user_id => current_user.id)
+  end
+
   # GET /promises/1
   # GET /promises/1.json
   def show

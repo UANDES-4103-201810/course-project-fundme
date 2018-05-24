@@ -4,7 +4,7 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @wishlists = Wishlist.where(user_id: current_user.id)
+    @wishlists = Wishlist.where(user: current_user.id)
 
     if @wishlist.nil?
       puts "VACIO"
