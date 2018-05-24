@@ -15,7 +15,7 @@
     <% @wishlist_projects.each do |wishlist_project| %>
       <tr>
         <td><%= wishlist_project.wishlist %></td>
-        <td><%= wishlist_project.project %></td>
+        <td><%= wishlist_project.projects %></td>
         <td><%= link_to 'Show', wishlist_project %></td>
         <td><%= link_to 'Edit', edit_wishlist_project_path(wishlist_project) %></td>
         <td><%= link_to 'Destroy', wishlist_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

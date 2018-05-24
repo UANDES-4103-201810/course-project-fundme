@@ -2,7 +2,7 @@
 
 <div class="col-sm-2"></div>
 <div class="col-md-6">
-<h1>Wishlists</h1>
+<h1>Wishlist</h1>
 
 <table>
   <thead>
@@ -12,19 +12,17 @@
   </thead>
 
   <tbody>
-  <%= @wishlistsprojects.count %>
-    <% @wishlistsprojects.each do |wishlist| %>
+
+    <% @wishlistsprojects.each do |wishlistproject| %>
       <tr>
         <td><br></td>
-        <td> <%=wishlist.projects %>.-</td>
-        <td  type="button" class="btn btn-success" style="color: white">  <%= link_to 'Show', wishlist %></td>
-        <td  type="button" class="btn btn-success" style="color: white"><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
-        <td  type="button" class="btn btn-success" style="color: white" ><%= link_to 'Eliminate', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= Project.find(wishlistproject.project_id).title  %> </td>
+        <td  type="button" class="btn btn-success" style="color: white">  <%= link_to 'Show project', project_path(wishlistproject.project_id) %></td>
+        <td  type="button" class="btn btn-success" style="color: white" ><%= link_to 'Remove project', wishlist_project_path(wishlistproject.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<a type="button"  class="btn btn-primary" style="color: white" <%= link_to 'New Wishlist', new_wishlist_path %> </a>
 
 </div>
