@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    @categories2 = Category.all
   end
   def myprojects
     @mprojects = Project.where(:user_id => current_user.id)
@@ -71,6 +72,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit( :video, :main_picture, :goal_amount, :category, :description, :marckdown, :days_to_go, :status, :title, :image, :user_id)
+      params.require(:project).permit( :video, :goal_amount, :category_id, :description, :marckdown, :days_to_go, :status, :title, :image, :user_id)
     end
 end
