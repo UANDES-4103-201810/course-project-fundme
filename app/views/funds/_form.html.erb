@@ -16,6 +16,19 @@
     <%= form.number_field :amount, id: :fund_amount %>
   </div>
 
+  <div class="field">
+    <%= form.text_field :project_id, :value => @project_id %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div>
+    <%= form.label :pay_method %>
+    <%= form.collection_select :pay_method_id, PayMethod.where(:user_id => current_user.id),:id,:company, include_blank: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

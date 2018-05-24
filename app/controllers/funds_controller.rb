@@ -4,7 +4,7 @@ class FundsController < ApplicationController
   # GET /funds
   # GET /funds.json
   def index
-    @funds = Fund.all
+    @funds = Fund.where(:user_id => current_user.id)
   end
 
   # GET /funds/1
@@ -14,6 +14,7 @@ class FundsController < ApplicationController
 
   # GET /funds/new
   def new
+    @project_id = params[:project_id]
     @fund = Fund.new
   end
 
@@ -69,6 +70,6 @@ class FundsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fund_params
-      params.require(:fund).permit(:amount)
+      params.require(:fund).permit(:amount, :user_id, :project_id, :pay_method_id)
     end
 end

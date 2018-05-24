@@ -82,7 +82,7 @@
                   <li ><%= link_to "Edit Profile", edit_user_registration_path %></li>
                   <li><a href="/wishlists">Wishlist</a></li>
                   <li><a href="/pay_methods">Pay Methods</a></li>
-                  <li><a>My Promises</a></li>
+                  <li ><%= link_to "My Funds", funds_path %></li>
                   <% if current_user.role != "admin" %>
                   <% else %>
                     <li><%= link_to "Users", users_index_path %></li>
