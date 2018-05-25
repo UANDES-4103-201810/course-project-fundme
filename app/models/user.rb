@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :projects,through: :funds
   has_many :funds
   has_many :projects
+  has_many :fundby_promises
 
   validates :name, presence: true
   validates :last_name, presence: true

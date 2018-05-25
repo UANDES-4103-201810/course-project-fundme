@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Promise:</strong>
+  <%= @fundby_promise.promise %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @fundby_promise.project %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @fundby_promise.user %>
+</p>
+
+<%= link_to 'Edit', edit_fundby_promise_path(@fundby_promise) %> |
+<%= link_to 'Back', fundby_promises_path %>

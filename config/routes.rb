@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fundby_promises
   resources :categories
   resources :wishlist_projects
   get 'users/index'

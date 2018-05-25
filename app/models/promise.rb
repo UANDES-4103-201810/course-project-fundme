@@ -1,6 +1,7 @@
 class Promise < ApplicationRecord
+
+  has_many :fundby_promises
   belongs_to :project
-  belongs_to :user
 
   validates :description, presence: true
   validates :estimated_delivery_date, presence: true

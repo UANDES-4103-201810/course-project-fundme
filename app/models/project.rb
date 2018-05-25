@@ -3,6 +3,8 @@ class Project < ApplicationRecord
   has_many :wishlist_projects
   has_many :users,through: :funds
   has_many :funds
+  has_many :promises
+  has_many :fundby_promises
   belongs_to :user
 
   def self.search(search)
