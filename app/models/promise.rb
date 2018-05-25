@@ -1,6 +1,7 @@
 class Promise < ApplicationRecord
+
+  has_many :fundby_promises
   belongs_to :project
-  belongs_to :user
 
   validates :description, presence: true
   validates :estimated_delivery_date, presence: true
@@ -13,4 +14,8 @@ class Promise < ApplicationRecord
       errors.add(:estimated_delivery_date, "can't be in the past")
     end
   end
+end
+
+def amount_with_description
+  "#{amount}, #{description}"
 end

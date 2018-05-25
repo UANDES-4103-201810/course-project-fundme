@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fundby Promises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Promise Description</th>
+      <th>Promise Amount</th>
+      <th>Project</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fundby_promises.each do |fundby_promise| %>
+      <tr>
+        <td><%= Promise.find(fundby_promise.promise_id).description %></td>
+        <td><%= Promise.find(fundby_promise.promise_id).amount %></td>
+        <td><%= Project.find(fundby_promise.project_id).title %></td>
+<!--        <td><%#= link_to 'Show', fundby_promise %></td>-->
+<!--        <td><%#= link_to 'Edit', edit_fundby_promise_path(fundby_promise) %></td>-->
+<!--        <td><%#= link_to 'Destroy', fundby_promise, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fundby Promise', new_fundby_promise_path %>

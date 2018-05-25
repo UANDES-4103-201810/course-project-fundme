@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Promise description:</strong>
+  <%= Promise.find(@fundby_promise.promise_id).description %>
+</p>
+
+<p>
+  <strong>Promise amount:</strong>
+  <%= Promise.find(@fundby_promise.promise_id).amount %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= Project.find(@fundby_promise.project_id).title %>
+</p>
+
+<%= link_to 'Edit', edit_fundby_promise_path(@fundby_promise) %> |
+<%= link_to 'Back', fundby_promises_path %>

@@ -1,0 +1,32 @@
+<%= form_with(model: fundby_promise, local: true) do |form| %>
+  <% if fundby_promise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fundby_promise.errors.count, "error") %> prohibited this fundby_promise from being saved:</h2>
+
+      <ul>
+      <% fundby_promise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= form.label :promise_id %>
+    <%= form.collection_select :promise_id, Promise.where(:project_id => @project_id),:id, :amount_with_description, include_blank: true  %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="form-group">
+
+    <%= form.hidden_field :project_id , :value => @project_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
