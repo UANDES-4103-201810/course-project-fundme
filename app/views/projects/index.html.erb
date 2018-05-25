@@ -3,8 +3,8 @@
 <% if current_user %>
 <div class="row">
   <div class="col-md-2">
-    <%= form_tag project_path, :method => 'get' do %>
-      <%= collection_select :projet, :category_name, Category.all, :id ,:name, prompt: true %>
+    <%= form_tag projects_path, :method => 'get' do %>
+      <%= collection_select :project, :category_id, Category.all, :id ,:name, prompt: true %>
       <%= submit_tag "filter" %>
     <% end %>
   </div>
