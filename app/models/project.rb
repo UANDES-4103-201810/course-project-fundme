@@ -5,6 +5,9 @@ class Project < ApplicationRecord
   has_many :funds
   belongs_to :user
 
+  def self.search(search)
+    where("category_id LIKE ?","%#{search}")
+  end
 
   has_attached_file :image, styles: { small: "30x30>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

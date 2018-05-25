@@ -61,7 +61,7 @@
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
-          <%= collection_select :projet, :category_name, Category.all, :id ,:name, prompt: true %>
+
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li><%= link_to 'Create your own project', new_project_path %></a></li>

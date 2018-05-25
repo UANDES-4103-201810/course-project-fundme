@@ -4,15 +4,20 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
-    @categories2 = Category.all
+    if params[:project] and params[:project][:category_id]
+      @projects = Project.search(params[:project][:category_id])
+    else
+      @projects = Project.all
+    end
   end
+
   def myprojects
     @mprojects = Project.where(:user_id => current_user.id)
   end
   # GET /projects/1
   # GET /projects/1.json
   def show
+
   end
 
   # GET /projects/new

@@ -1,3 +1,6 @@
+
+
+
 <%= form_with(model: fund, local: true) do |form| %>
   <% if fund.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +14,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :amount %>
-    <%= form.number_field :amount, id: :fund_amount %>
+    <%= form.number_field :amount, id: :fund_amount,class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.text_field :project_id, :value => @project_id %>
+  <div class="form-group">
+    <%= form.text_field :project_id, :value => @project_id,class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.text_field :user_id, :value => current_user.id %>
+  <div class="form-group">
+    <%= form.text_field :user_id, :value => current_user.id,class: "form-control" %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :pay_method %>
-    <%= form.collection_select :pay_method_id, PayMethod.where(:user_id => current_user.id),:id,:company, include_blank: true %>
+    <%= form.collection_select :pay_method_id, PayMethod.where(:user_id => current_user.id),:id,:company, include_blank: true,class: "form-control" %>
   </div>
 
   <div class="actions">
