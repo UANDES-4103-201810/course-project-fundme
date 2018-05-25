@@ -3,48 +3,49 @@
 
 
   <form action="/action_page.php">
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-4">
-      <h2>Account Information</h2>
-      <div class="form-group">
-        <label for="Name">Name:</label>
-        <div class="panel panel-default">
-          <div class="panel-body"><%= @user.name %> </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-4">
+        <h2>Account Information</h2>
+        <div class="form-group">
+          <label for="Name">Name:</label>
+          <div class="panel panel-default">
+            <div class="panel-body"><%= @user.name %> </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Last Name">Last Name:</label>
+          <div class="panel panel-default">
+            <div class="panel-body"><%= @user.last_name %> </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Email">Email:</label>
+          <div class="panel panel-default">
+            <div class="panel-body"><%= @user.email %> </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Contact Information">Contact Information:</label>
+          <div class="panel panel-default">
+            <div class="panel-body"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Description">Description:</label>
+          <div class="panel panel-default">
+            <div class="panel-body"><%= @user.description %></div>
+          </div>
         </div>
       </div>
-      <div class="form-group">
-        <label for="Last Name">Last Name:</label>
-        <div class="panel panel-default">
-          <div class="panel-body"><%= @user.last_name %> </div>
+      <div class="col-md-2">
+        <div class="Image profile">
+          <h2>Image Profile</h2>
+            <%= image_tag(@user.image.url(:medium),size: "100x100>") %>
+          <a ><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %></a>
         </div>
       </div>
-      <div class="form-group">
-        <label for="Email">Email:</label>
-        <div class="panel panel-default">
-          <div class="panel-body"><%= @user.email %> </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="Contact Information">Contact Information:</label>
-        <div class="panel panel-default">
-          <div class="panel-body"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="Description">Description:</label>
-        <div class="panel panel-default">
-          <div class="panel-body"><%= @user.description %></div>
-        </div>
-      </div></div>
-    <div class="col-sm-2">
-      <div class="Image profile">
-        <h2>Image Profile</h2>
-          <%= image_tag(@user.image.url(:thumb),size: "100x100>") %>
-      </div>
-  </div>
-
-  </div>
+    </div>
 
   </form>
 
