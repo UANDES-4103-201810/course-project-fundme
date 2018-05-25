@@ -17,7 +17,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-
+    @amount = 0
+    @backer_count = 0
+    @backed.where(project_id: @project).each do |bk|
+      @amount += bk.amount
+      @backer_count += 1
+    end
   end
   def downImage
     @project = Project.new

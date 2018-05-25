@@ -42,6 +42,8 @@
         <div class="Image profile">
           <h2>Image Profile</h2>
             <%= image_tag(@user.image.url(:medium),size: "100x100>") %>
+          <br>
+          <br>
           <a ><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %></a>
         </div>
       </div>

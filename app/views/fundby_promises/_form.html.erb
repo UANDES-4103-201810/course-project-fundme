@@ -14,7 +14,7 @@
 
   <div class="form-group">
     <%= form.label :promise_id %>
-    <%= form.collection_select :promise_id, Promise.where(:project_id => @project_id),:id, :amount_with_description, include_blank: true  %>
+    <%= form.collection_select :promise_id, Promise.where(:project_id => @project_id),:id, :amount_with_description, include_blank: true, class: "form-control" %>
   </div>
 
   <div class="field">
