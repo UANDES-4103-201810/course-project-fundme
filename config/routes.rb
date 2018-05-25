@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :users, :only =>[:show]
   match '/users',   to: 'users#index',   via: 'get'
   match '/users/:id',   to: 'users#show',  via: 'get'
+  match '/users/:id', to: 'users#destroy', via: 'delete'
+
   root 'home#index'
   get 'home/index'
 

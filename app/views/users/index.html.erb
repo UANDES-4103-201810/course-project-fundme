@@ -17,8 +17,8 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td class="btn btn-success"><%= link_to 'Show', user %></td>
-        <td class="btn btn-info"<%= link_to 'Edit', user %></td>
-        <td class="btn btn-danger" <%= link_to 'Delete', user %></td>
+<!--        <td class="btn btn-info"<%#= link_to 'Edit', user %></td>-->
+        <%#= link_to 'Eliminate', user, method: :delete, data: {confirm: 'Are you sure?'} , class: "btn btn-danger" %>
       </tr>
     <% end %>
     </tbody>
