@@ -34,6 +34,9 @@
                   <td><%= link_to 'Show', project, class: "btn btn-success" %></td>
                   <td><%= link_to 'Edit', edit_project_path(project),class: "btn btn-primary" %>  </td>
 
+                  <div  class="btn btn-info" ><%= link_to 'Add Promise', new_promise_path(:project_id => project.id) %></div>
+
+
               </div>
               <div class="col-md-3">
                 <h5>Markdown</h5>

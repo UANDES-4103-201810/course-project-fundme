@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :amount %>
-    <%= form.number_field :amount, id: :promise_amount %>
+    <%= form.number_field :amount, id: :promise_amount, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :estimated_delivery_date %>
-    <%= form.date_select :estimated_delivery_date, id: :promise_estimated_delivery_date %>
+    <%= form.date_select :estimated_delivery_date, id: :promise_estimated_delivery_date, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_field :description, id: :promise_description %>
+    <%= form.text_field :description, id: :promise_description, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -31,6 +31,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create Promise",class: "btn btn-success" %>
   </div>
 <% end %>

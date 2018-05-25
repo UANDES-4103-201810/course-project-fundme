@@ -14,7 +14,6 @@ class WishlistProjectsController < ApplicationController
 
   # GET /wishlist_projects/new
   def new
-
     @wishlist_project = WishlistProject.new(params[:wishlist_project])
   end
 

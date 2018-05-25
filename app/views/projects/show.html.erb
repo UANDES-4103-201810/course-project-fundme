@@ -43,11 +43,9 @@
 
       <br>
 
-      <%  if current_user.id == @project.user_id %>
-        <div  class="btn btn-info btn-lg" ><%= link_to 'Add Promise', new_promise_path(:project_id => @project.id) %></div>
-        <%  else %>
+
         <div  class="btn btn-info btn-lg" ><%= link_to 'Fund by promise', new_fundby_promise_path(:project_id => @project.id) %></div>
-        <% end%>
+
     </div>
     <div class="col-lg-4">
       <div  class="btn btn-info btn-lg" ><%= link_to 'Fund', new_fund_path(:project_id => @project.id) %></div>

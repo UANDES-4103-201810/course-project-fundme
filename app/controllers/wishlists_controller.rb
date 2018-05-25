@@ -4,16 +4,7 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-
     @wishlists = Wishlist.where(:user_id => current_user.id)
-
-
-    if @wishlists.count == 0
-      puts "VACIO"
-    else
-      puts "LISTO"
-    end
-
     @wishlistsprojects = WishlistProject.where(:wishlist_id => @wishlists)
   end
 
@@ -62,21 +53,18 @@ class WishlistsController < ApplicationController
   end
 
   def addproject
-
     if current_user.wishlist.nil?
       current_user.wishlist = Wishlist.new(user_id: current_user.id)
     end
-
     @project = params[:project_id]
     if WishlistProject.where(:project_id => @project).nil?
-      
     else
       @wishlistproject = WishlistProject.new(wishlist_id: current_user.wishlist.id, project_id: @project)
       @wishlistproject.save
     end
 
 
-    redirect_to Rails.application.routes.recognize_path(request.referer)#[:action]
+    redirect_to Rails.application.routes.recognize_path(request.referer), notice: 'Project added to Wishlist'#[:action]
     # render(:action => 'index')
 
   end
