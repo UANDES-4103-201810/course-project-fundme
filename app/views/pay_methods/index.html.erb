@@ -1,7 +1,7 @@
 <div class="col-md-2"></div>
 <div class="col-md-6">
   <h2>Pay Methods</h2>
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
     <tr>
       <th>Card number</th>
@@ -17,9 +17,9 @@
         <td><%= pay_method.name_in_card %></td>
         <td><%= pay_method.expiration_date %></td>
         <td><%= pay_method.company %></td>
-        <td  type="button" class="btn btn-success" style="color: white">  <%= link_to 'Show', pay_method %></td>
-        <td type="button" class="btn btn-success" style="color: white">   <%= link_to 'Edit', edit_pay_method_path(pay_method) %> </td>
-        <td type="button" class="btn btn-success" style="color: white">   <%= link_to 'Eliminate', pay_method, method: :delete, data: {confirm: 'Are you sure?'} %> </td>
+        <td  >  <%= link_to 'Show', pay_method, class: "btn btn-success" %></td>
+        <td>   <%= link_to 'Edit', edit_pay_method_path(pay_method), class: "btn btn-primary"  %> </td>
+        <td >   <%= link_to 'Eliminate', pay_method, method: :delete, data: {confirm: 'Are you sure?'} , class: "btn btn-danger" %> </td>
       </tr>
     <% end %>
     </tbody>
