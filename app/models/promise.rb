@@ -15,3 +15,7 @@ class Promise < ApplicationRecord
     end
   end
 end
+
+def amount_with_description
+  "#{amount}, #{description}"
+end

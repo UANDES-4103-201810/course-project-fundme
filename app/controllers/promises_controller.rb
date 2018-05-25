@@ -18,6 +18,7 @@ class PromisesController < ApplicationController
 
   # GET /promises/new
   def new
+    @project_id = params[:project_id]
     @promise = Promise.new
   end
 
@@ -73,6 +74,6 @@ class PromisesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def promise_params
-      params.require(:promise).permit(:amount, :estimated_delivery_date, :description)
+      params.require(:promise).permit(:amount, :estimated_delivery_date, :description, :project_id)
     end
 end

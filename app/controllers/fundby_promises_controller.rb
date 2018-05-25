@@ -4,7 +4,7 @@ class FundbyPromisesController < ApplicationController
   # GET /fundby_promises
   # GET /fundby_promises.json
   def index
-    @fundby_promises = FundbyPromise.all
+    @fundby_promises = FundbyPromise.where(:user_id => current_user.id)
   end
 
   # GET /fundby_promises/1
@@ -14,6 +14,7 @@ class FundbyPromisesController < ApplicationController
 
   # GET /fundby_promises/new
   def new
+    @project_id = params[:project_id]
     @fundby_promise = FundbyPromise.new
   end
 
