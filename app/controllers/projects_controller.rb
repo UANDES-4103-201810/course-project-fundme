@@ -19,7 +19,11 @@ class ProjectsController < ApplicationController
   def show
 
   end
-
+  def downImage
+    @project = Project.new
+    image_url = params[:image_url]
+    @project.image = URI.parse(image_url)
+  end
   # GET /projects/new
   def new
     @project = Project.new
