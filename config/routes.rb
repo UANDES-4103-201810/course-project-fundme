@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   resources :wishlist_projects
   get 'users/index'
 
-  devise_for :users, :path_prefix => 'd'
-  resources :users, :only =>[:show]
+  devise_for :users, :path_prefix => 'd', :omniauth_callbacks => 'callbacks'
   match '/users',   to: 'users#index',   via: 'get'
   match '/users/:id',   to: 'users#show',  via: 'get'
   match '/users/:id', to: 'users#destroy', via: 'delete'

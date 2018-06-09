@@ -10,7 +10,8 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '3459d81378229c2f5e83f67471634c06205edd5d746e47cfc9c312a6d02917cdbd5378c4cb98791f904f80af6c35c3446598a35cbb8c5e29eb05a0b4b8e6ed50'
 
-  
+  config.mailer_sender = "mailer@example.com"
+  config.omniauth :facebook ,"207393816545455","f625c3bc84782f28314d755c413f2be7"
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
