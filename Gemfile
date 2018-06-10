@@ -58,3 +58,8 @@ gem 'jquery'
 gem 'jquery-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'paperclip', '~> 6.0.0'
+gem 'cancancan', '~> 2.0'
+
+
+
+

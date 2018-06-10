@@ -8,8 +8,9 @@ class Project < ApplicationRecord
   belongs_to :user
 
   def self.search(search)
-    where("category_id LIKE ?","%#{search}")
+    where("category_id LIKE ? OR title LIKE ? OR description LIKE ?","%#{search}","%#{search}","%#{search}")
   end
+
 
   has_attached_file :image, styles: { small: "30x30>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
