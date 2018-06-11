@@ -58,8 +58,12 @@ gem 'jquery'
 gem 'jquery-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'paperclip', '~> 6.0.0'
+
 gem 'cancancan', '~> 2.0'
 
 
 
+gem 'therubyracer', '~> 0.12.3'
+gem 'omniauth', '~> 1.8', '>= 1.8.1'
+gem 'omniauth-facebook', '~> 5.0'
 
