@@ -64,7 +64,9 @@
                   <li ><%= link_to "My Funds", funds_path %></li>
                   <li ><%= link_to "My Funds by promises", fundby_promises_path %></li>
                   <% if current_user.role != "admin" %>
+
                   <% else %>
+                    <li><% link_to "Admin", rails_admin_path%></li>
                     <li><%= link_to "Users", users_index_path %></li>
                     <li><%= link_to "Projects", projects_path %></li>
                     <li><%= link_to "Categories", categories_path %></li>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :fundby_promises
   resources :categories
   resources :wishlist_projects
   get 'users/index'
 
-  devise_for :users, :path_prefix => 'd'
+  devise_for :users, :path_prefix => 'd',controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
   resources :users, :only =>[:show]
   match '/users',   to: 'users#index',   via: 'get'
   match '/users/:id',   to: 'users#show',  via: 'get'
