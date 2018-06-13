@@ -5,20 +5,25 @@ class ContactInformationsController < ApplicationController
   # GET /contact_informations.json
   def index
     @contact_informations = ContactInformation.all
+
   end
 
   # GET /contact_informations/1
   # GET /contact_informations/1.json
   def show
+    authorize! :read, @contact_information
   end
 
   # GET /contact_informations/new
   def new
     @contact_information = ContactInformation.new
+    authorize! :create, @contact_information
+
   end
 
   # GET /contact_informations/1/edit
   def edit
+    authorize! :update, @contact_information
   end
 
   # POST /contact_informations
@@ -49,26 +54,29 @@ class ContactInformationsController < ApplicationController
         format.json { render json: @contact_information.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @contact_information
   end
 
   # DELETE /contact_informations/1
   # DELETE /contact_informations/1.json
   def destroy
     @contact_information.destroy
+
     respond_to do |format|
       format.html { redirect_to contact_informations_url, notice: 'Contact information was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize! :destroy, @contact_information
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contact_information
-      @contact_information = ContactInformation.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_contact_information
+    @contact_information = ContactInformation.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def contact_information_params
-      params.require(:contact_information).permit(:address, :phone_number)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def contact_information_params
+    params.require(:contact_information).permit(:address, :phone_number)
+  end
 end

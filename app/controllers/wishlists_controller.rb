@@ -1,3 +1,4 @@
+
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
 
@@ -6,20 +7,24 @@ class WishlistsController < ApplicationController
   def index
     @wishlists = Wishlist.where(:user_id => current_user.id)
     @wishlistsprojects = WishlistProject.where(:wishlist_id => @wishlists)
+
   end
 
   # GET /wishlists/1
   # GET /wishlists/1.json
   def show
+    authorize! :read,  @wishlist
   end
 
   # GET /wishlists/new
   def new
     @wishlist = Wishlist.new
+    authorize! :create, @wishlist
   end
 
   # GET /wishlists/1/edit
   def edit
+    authorize! :update, @wishlist
   end
 
   # POST /wishlists
@@ -50,6 +55,7 @@ class WishlistsController < ApplicationController
         format.json { render json: @wishlist.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @wishlist
   end
 
   def addproject
@@ -73,6 +79,7 @@ class WishlistsController < ApplicationController
   # DELETE /wishlists/1.json
   def destroy
     @wishlist.destroy
+    authorize! :destroy, @wishlist
     respond_to do |format|
       format.html { redirect_to wishlists_url, notice: 'Wishlist was successfully destroyed.' }
       format.json { head :no_content }
@@ -80,13 +87,13 @@ class WishlistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_wishlist
-      @wishlist = Wishlist.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_wishlist
+    @wishlist = Wishlist.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def wishlist_params
-      params.fetch(:wishlist, {})
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def wishlist_params
+    params.fetch(:wishlist, {})
+  end
 end

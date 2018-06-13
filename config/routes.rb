@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'addproject' , to: 'wishlists#addproject'
   get 'myprojects' , to: 'projects#myprojects'
+  get 'outstandings' , to: 'projects#outstandings'
   resources :funds
   resources :wishlists
   resources :pay_methods

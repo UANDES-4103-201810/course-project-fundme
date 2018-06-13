@@ -5,21 +5,26 @@ class FundsController < ApplicationController
   # GET /funds.json
   def index
     @funds = Fund.where(:user_id => current_user.id)
+
   end
 
   # GET /funds/1
   # GET /funds/1.json
   def show
+    authorize! :read, @fund
   end
 
   # GET /funds/new
   def new
     @project_id = params[:project_id]
     @fund = Fund.new
+    authorize! :create, @fund
+
   end
 
   # GET /funds/1/edit
   def edit
+    authorize! :update, @fund
   end
 
   # POST /funds
@@ -50,12 +55,16 @@ class FundsController < ApplicationController
         format.json { render json: @fund.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @fund
   end
 
   # DELETE /funds/1
   # DELETE /funds/1.json
   def destroy
     @fund.destroy
+
+    authorize! :destroy, @fund
+
     respond_to do |format|
       format.html { redirect_to funds_url, notice: 'Fund was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,13 +72,13 @@ class FundsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fund
-      @fund = Fund.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_fund
+    @fund = Fund.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def fund_params
-      params.require(:fund).permit(:amount, :user_id, :project_id, :pay_method_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def fund_params
+    params.require(:fund).permit(:amount, :user_id, :project_id, :pay_method_id)
+  end
 end
