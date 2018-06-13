@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180613012536) do
     t.string "marckdown"
     t.integer "days_to_go"
     t.boolean "status"
+    t.boolean "outstanding"
     t.string "title"
     t.integer "user_id"
     t.integer "category_id"

@@ -16,11 +16,16 @@ Rails.application.routes.draw do
 
   get 'addproject' , to: 'wishlists#addproject'
   get 'myprojects' , to: 'projects#myprojects'
+
   resources :funds do
     member do
       get :confirm_email
     end
   end
+
+  get 'outstandings' , to: 'projects#outstandings'
+  resources :funds
+
   resources :wishlists
   resources :pay_methods
   resources :contact_informations

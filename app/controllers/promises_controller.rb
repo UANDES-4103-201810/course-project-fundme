@@ -5,25 +5,30 @@ class PromisesController < ApplicationController
   # GET /promises.json
   def index
     @promises = Promise.all
+
   end
 
   def mypromises
     @mpromises = Promise.where(:user_id => current_user.id)
+
   end
 
   # GET /promises/1
   # GET /promises/1.json
   def show
+    authorize! :read , @promise
   end
 
   # GET /promises/new
   def new
     @project_id = params[:project_id]
     @promise = Promise.new
+    authorize! :create , @promise
   end
 
   # GET /promises/1/edit
   def edit
+    authorize! :update , @promise
   end
 
   # POST /promises
@@ -54,12 +59,14 @@ class PromisesController < ApplicationController
         format.json { render json: @promise.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update , @promise
   end
 
   # DELETE /promises/1
   # DELETE /promises/1.json
   def destroy
     @promise.destroy
+    authorize! :destroy , @promise
     respond_to do |format|
       format.html { redirect_to promises_url, notice: 'Promise was successfully destroyed.' }
       format.json { head :no_content }
@@ -67,13 +74,13 @@ class PromisesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_promise
-      @promise = Promise.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_promise
+    @promise = Promise.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def promise_params
-      params.require(:promise).permit(:amount, :estimated_delivery_date, :description, :project_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def promise_params
+    params.require(:promise).permit(:amount, :estimated_delivery_date, :description, :project_id)
+  end
 end

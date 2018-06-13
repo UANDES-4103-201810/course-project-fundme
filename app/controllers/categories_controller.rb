@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    authorize! :read, @category
   end
 
   # GET /categories/new
@@ -21,6 +22,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    authorize! :update, @category
   end
 
   # POST /categories
@@ -51,12 +53,14 @@ class CategoriesController < ApplicationController
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @category
   end
 
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
     @category.destroy
+    authorize! :destroy, @category
     respond_to do |format|
       format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,13 +68,13 @@ class CategoriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category
-      @category = Category.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def category_params
-      params.require(:category).permit(:name)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def category_params
+    params.require(:category).permit(:name)
+  end
 end
