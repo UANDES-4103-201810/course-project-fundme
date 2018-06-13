@@ -18,6 +18,19 @@ class FundsController < ApplicationController
     @fund = Fund.new
   end
 
+  def confirm_email
+    fund = Fund.find_by_confirm_token(params[:id])
+    if  fund_params
+      fund.email_activate
+      flash[:success] = "thaks for funding this proyect"
+      redirect_to root_path
+    else
+      flash[:danger] = "Confirmation fail"
+      redirect_to root_path
+    end
+
+  end
+
   # GET /funds/1/edit
   def edit
   end
@@ -29,7 +42,8 @@ class FundsController < ApplicationController
 
     respond_to do |format|
       if @fund.save
-        format.html { redirect_to @fund, notice: 'Fund was successfully created.' }
+        FundMailer.fund_confirmation(@fund,current_user).deliver
+        format.html { redirect_to @fund, notice: 'Fund was successfully created, Please confirm you fund by a email we sent.' }
         format.json { render :show, status: :created, location: @fund }
       else
         format.html { render :new }
