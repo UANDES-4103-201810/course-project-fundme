@@ -9,6 +9,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.integer :days_to_go
       t.boolean :status
       t.string :title
+      t.boolean :outstanding
       t.references :user
       t.references :category
 

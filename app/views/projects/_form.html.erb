@@ -12,9 +12,11 @@
     </div>
   <% end %>
 <div class="col-md-8">
+<% if current_user.role != "admin"  %>
     <div class="form-group">
       <%= form.hidden_field :user_id, :value => current_user.id, class: "form-control" %>
     </div>
+  <% end %>
     <div class="form-group">
       <%= form.label :image%>
       <%= form.file_field :image, id: :project_image, class: "form-control" %>
@@ -53,6 +55,13 @@
       <%= form.label :status %>
       <%= form.check_box :status, id: :project_status, class: "form-control"  %>
     </div>
+  <% if current_user.role == "admin" %>
+  <div class="form-group">
+    <%= form.label :outstanding %>
+    <%= form.check_box :outstanding, id: :project_outstanding, class: "form-control"  %>
+  </div>
+    <% end %>
+
     <div class="form-group">
       <%= form.label :title %>
       <%= form.text_field :title, id: :project_title, class: "form-control"  %>

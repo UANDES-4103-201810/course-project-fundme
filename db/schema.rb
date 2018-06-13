@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20180525205250) do
     t.integer "days_to_go"
     t.boolean "status"
     t.string "title"
+    t.boolean "outstanding"
     t.integer "user_id"
     t.integer "category_id"
     t.datetime "created_at", null: false

@@ -5,20 +5,24 @@ class WishlistProjectsController < ApplicationController
   # GET /wishlist_projects.json
   def index
     @wishlist_projects = WishlistProject.all
+    authorize! :read, @wishlist_projects
   end
 
   # GET /wishlist_projects/1
   # GET /wishlist_projects/1.json
   def show
+    authorize! :read, @wishlist_project
   end
 
   # GET /wishlist_projects/new
   def new
     @wishlist_project = WishlistProject.new(params[:wishlist_project])
+    authorize! :create, @wishlist_project
   end
 
   # GET /wishlist_projects/1/edit
   def edit
+    authorize! :update, @wishlist_project
   end
 
   # POST /wishlist_projects
@@ -49,12 +53,14 @@ class WishlistProjectsController < ApplicationController
         format.json { render json: @wishlist_project.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @wishlist_project
   end
 
   # DELETE /wishlist_projects/1
   # DELETE /wishlist_projects/1.json
   def destroy
     @wishlist_project.destroy
+    authorize! :destroy, @wishlist_project
     respond_to do |format|
       format.html { redirect_to wishlists_url, notice: 'Wishlist project was successfully destroyed.' }
       format.json { head :no_content }

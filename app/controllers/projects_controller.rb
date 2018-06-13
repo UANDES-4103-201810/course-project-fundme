@@ -7,15 +7,25 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     if params[:project] and params[:project][:category_id]
       @projects = Project.search(params[:project][:category_id]).order("created_at DESC")
+
     elsif params[:search]
       @projects = Project.search(params[:search]).order("created_at DESC")
+
     else
       @projects = Project.all.order("created_at DESC")
+
     end
+
   end
 
   def myprojects
     @mprojects = Project.where(:user_id => current_user.id)
+
+  end
+
+  def outstandings
+    @outstandings = Project.where(:outstanding => true)
+
   end
   # GET /projects/1
   # GET /projects/1.json
@@ -30,10 +40,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    authorize! :create , @project
   end
 
   # GET /projects/1/edit
   def edit
+    authorize! :update , @project
   end
 
   # POST /projects
@@ -64,12 +76,16 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update , @project
+
   end
 
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
     @project.destroy
+    authorize! :destroy , @project
+
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
@@ -84,6 +100,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit( :video, :goal_amount, :category_id, :description, :marckdown, :days_to_go, :status, :title, :image, :user_id)
+      params.require(:project).permit( :video, :goal_amount, :category_id, :description, :marckdown, :days_to_go, :status, :title, :image, :user_id, :outstanding)
     end
 end

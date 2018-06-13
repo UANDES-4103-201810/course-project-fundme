@@ -6,6 +6,8 @@ class Ability
 
     if user.present?  # additional permissions for logged in users (they can manage their posts)
       # can :manage, Project, user_id: user.id
+      #
+      can :manage , [FundbyPromise, Project, ContactInformation, Fund, PayMethod, Promise, Wishlist, WishlistProject]
 
 
       if user.role == "admin"  # additional permissions for administrators

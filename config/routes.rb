@@ -5,16 +5,19 @@ Rails.application.routes.draw do
   get 'users/index'
 
   devise_for :users, :path_prefix => 'd'
-  resources :users, :only =>[:show]
+  resources :users, :only =>[:show, :edit]
   match '/users',   to: 'users#index',   via: 'get'
   match '/users/:id',   to: 'users#show',  via: 'get'
   match '/users/:id', to: 'users#destroy', via: 'delete'
+  # match '/users/:id', to: 'users#edit', via: 'get'
+
 
   root 'home#index'
   get 'home/index'
 
   get 'addproject' , to: 'wishlists#addproject'
   get 'myprojects' , to: 'projects#myprojects'
+  get 'outstandings' , to: 'projects#outstandings'
   resources :funds
   resources :wishlists
   resources :pay_methods

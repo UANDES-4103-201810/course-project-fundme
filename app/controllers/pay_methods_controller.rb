@@ -4,21 +4,25 @@ class PayMethodsController < ApplicationController
   # GET /pay_methods
   # GET /pay_methods.json
   def index
-    @pay_methods = PayMethod.all
+    @pay_methods = PayMethod.where(:user_id => current_user.id)
+
   end
 
   # GET /pay_methods/1
   # GET /pay_methods/1.json
   def show
+    authorize! :read, @pay_method
   end
 
   # GET /pay_methods/new
   def new
     @pay_method = PayMethod.new
+    authorize! :create, @pay_method
   end
 
   # GET /pay_methods/1/edit
   def edit
+    authorize! :update, @pay_method
   end
 
   # POST /pay_methods
@@ -49,12 +53,14 @@ class PayMethodsController < ApplicationController
         format.json { render json: @pay_method.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @pay_method
   end
 
   # DELETE /pay_methods/1
   # DELETE /pay_methods/1.json
   def destroy
     @pay_method.destroy
+    authorize! :destroy, @pay_method
     respond_to do |format|
       format.html { redirect_to pay_methods_url, notice: 'Pay method was successfully destroyed.' }
       format.json { head :no_content }

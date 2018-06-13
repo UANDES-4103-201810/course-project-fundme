@@ -5,21 +5,26 @@ class FundbyPromisesController < ApplicationController
   # GET /fundby_promises.json
   def index
     @fundby_promises = FundbyPromise.where(:user_id => current_user.id)
+
   end
 
   # GET /fundby_promises/1
   # GET /fundby_promises/1.json
   def show
+    authorize! :read, @fundby_promise
   end
 
   # GET /fundby_promises/new
   def new
     @project_id = params[:project_id]
     @fundby_promise = FundbyPromise.new
+    authorize! :create, @fundby_promise
+
   end
 
   # GET /fundby_promises/1/edit
   def edit
+    authorize! :update, @fundby_promise
   end
 
   # POST /fundby_promises
@@ -50,12 +55,14 @@ class FundbyPromisesController < ApplicationController
         format.json { render json: @fundby_promise.errors, status: :unprocessable_entity }
       end
     end
+    authorize! :update, @fundby_promise
   end
 
   # DELETE /fundby_promises/1
   # DELETE /fundby_promises/1.json
   def destroy
     @fundby_promise.destroy
+    authorize! :destroy, @fundby_promise
     respond_to do |format|
       format.html { redirect_to fundby_promises_url, notice: 'Fundby promise was successfully destroyed.' }
       format.json { head :no_content }
