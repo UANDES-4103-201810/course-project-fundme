@@ -6,16 +6,18 @@ Rails.application.routes.draw do
   get 'users/index'
 
   devise_for :users, :path_prefix => 'd',controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-  resources :users, :only =>[:show]
+  resources :users, :only =>[:show,:edit, :update]
   match '/users',   to: 'users#index',   via: 'get'
-  match '/users/:id',   to: 'users#show',  via: 'get'
-  match '/users/:id', to: 'users#destroy', via: 'delete'
+  # match '/users/:id',   to: 'users#show',  via: 'get'
+  # match '/users/:id', to: 'users#destroy', via: 'delete'
+  match '/users/:id/edit', to: 'users#edit', via: 'get'
 
   root 'home#index'
   get 'home/index'
 
   get 'addproject' , to: 'wishlists#addproject'
   get 'myprojects' , to: 'projects#myprojects'
+
 
   resources :funds do
     member do
